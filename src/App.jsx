@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [data, setData] = useState({
     first_name: "",
     last_name: ""
@@ -13,10 +12,12 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    setData({
-      first_name : e.target[0].value,
-      last_name : e.target[1].value
-    })
+    if (e.target[0].value && e.target[1].value) {
+      setData({
+        first_name: e.target[0].value,
+        last_name: e.target[1].value
+      })
+    }
   }
 
   return (
